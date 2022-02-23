@@ -1,0 +1,18 @@
+<div class="container-lg justify-center">
+    <div *ngIf="loaderService.isLoading | async" class="loader-container">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Covid Case Insights Across the World</h3>
+            <h3 style="color: rgb(0, 255, 55);">Grid Charts</h3>
+            <ngx-charts-pie-grid [results]="insights">
+            </ngx-charts-pie-grid>
+        </div>
+        <div class="col">
+            <h3 style="color:  rgb(0, 255, 55);">Advanced Pie Chart</h3>
+            <ngx-charts-advanced-pie-chart [results]="insights" [gradient]="true">
+            </ngx-charts-advanced-pie-chart>
+        </div>
+    </div>
+</div>

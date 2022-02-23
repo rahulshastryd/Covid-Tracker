@@ -1,0 +1,60 @@
+<div class="container-lg justify-center">
+    <div *ngIf="loaderService.isLoading | async" class="loader-container">
+        <mat-spinner style="top: 50%;left:50%;"></mat-spinner>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <h3 class="card-title" >World Covid Case Report</h3>
+                <!-- <div class="card-header">
+                    Featured
+                </div> -->
+                <div class="text-center">
+                    <table class="table table-bordered table-hover table-active">
+                        <tbody>
+                            <tr scope="col">
+                                <td scope="col" style="color: orange;">Active Cases</td>
+                                <td>{{worlddata.activeCases}}
+                                    <span><small style="color: orange;">
+                                        {{'+' + '[' + worlddata.activeCasesNew + ']' }}
+                                        </small>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr scope="col">
+                                <td scope="col" style="color: green;">Recovered</td>
+                                <td scope="row">{{worlddata.recovered}}
+                                    <span><small style="color: green;">
+                                        {{'+' + '[' + worlddata.recoveredNew + ']' }}
+                                        </small>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr scope="col">
+                                <td scope="col" style="color: red;">Deaths</td>
+                                <td scope="row">{{worlddata.deaths}}
+                                    <span><small style="color: red;">
+                                    {{'+' + '[' + worlddata.deathsNew + ']' }}
+                                    </small></span>
+                                </td>
+                            </tr>
+                            <tr scope="col">
+                                <td scope="col" style="color: rgb(218, 63, 63);" >PreviousDayTests</td>
+                                <td scope="row">{{worlddata.previousDayTests}}</td>
+                            </tr>
+
+                            <tr scope="col">
+                                <td scope="row" style="color: yellow;">TotalCases</td>
+                                <td scope="row">{{worlddata.totalCases}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a class="btn btn-lg btn-block btn-outline-danger text-center" style="color: yellowgreen;" routerLink="/reports/worldinsights" >Get Insights</a>
+                </div>
+                <!-- <div class="card-footer text-muted">
+                    2 days ago
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

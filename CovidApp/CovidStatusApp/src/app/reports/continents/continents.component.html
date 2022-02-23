@@ -1,0 +1,69 @@
+<div class="container-fluid justify-center">
+  <div *ngIf="loaderService.isLoading | async" class="loader-container">
+    <mat-spinner style="top: 50%;left:50%;"></mat-spinner>
+  </div>
+  <h3 class="text-center" id="heading">Continental Covid Case Report</h3>
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered table-hover table-active">
+        <thead>
+          <tr>
+            <th scope="col" style="color: darkturquoise;">Continent</th>
+            <th scope="col" style="color: orangered;">Cases</th>
+            <th scope="col" style="color: red;">Deaths</th>
+            <th scope="col" style="color: green;">Recovered</th>
+            <th scope="col" style="color: orange;">Active</th>
+            <th scope="col" style="color: rgb(218, 63, 63);">Critical</th>
+            <th scope="col" style="color: greenyellow;">Total Tests</th>
+            <th scope="col" style="color: blue;">Population</th>
+            <th scope="col" style="color: lawngreen;">Insights</th>
+            <th scope="col" style="color: rgb(212, 0, 255);">Countries</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-active"
+            *ngFor="let continent of continentaldata | paginate: { itemsPerPage: count, currentPage: p } ">
+            <td>{{continent.continent}}</td>
+            <td>{{continent.cases}}</td>
+            <td>{{continent.deaths}}
+              <br>
+              <span><small style="color: red;">
+                  {{'+' + '[' + continent.todayDeaths + ']' }}
+                </small></span>
+            </td>
+            <td>{{continent.recovered}}
+              <br>
+              <span><small style="color: green;">
+                  {{'+' + '[' + continent.todayRecovered + ']' }}
+                </small></span>
+            </td>
+            <td>{{continent.active}}</td>
+            <td>{{continent.critical}}</td>
+            <td>{{continent.tests}}</td>
+            <td>{{continent.population}}</td>
+            <td><button type="button" class="btn btn-outline-info btn-sm">Get Insights</button></td>
+            <td><button type="button" class="btn btn-outline-primary btn-sm btn-block">{{ continent.continent +'
+                Countries'}}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!--Including the pagination control.-->
+  <div class="text-right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+
+</div>
+
+<div class="container" style="background-color: aliceblue;">
+  <div class="row">
+    <div class="col">
+      <ngx-charts-bar-vertical [view]="[1000,400]" [results]="insights" [xAxisLabel]="'Products'"
+        [legendTitle]="'Product Sale Chart'" [yAxisLabel]="'Sale'" [legend]="true" [showXAxisLabel]="true"
+        [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
+      </ngx-charts-bar-vertical>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+export interface ICountriesData {
+    Continent:string;
+    Country:string;
+    Updated:number;
+    Cases:number;
+    TodayCases:number;
+    Deaths:number;
+    TodayDeaths:number;
+    Recovered:number;
+    TodayRecovered:number;
+    Active:number;
+    Critical:number;
+    CasesPerOneMillion:number;
+    DeathsPerOneMillion:number;
+    Tests:number;
+    TestsPerOneMillion:number;
+    Population:number;
+    ActivePerOneMillion:string;
+    RecoveredPerOneMillion:number;
+    CriticalPerOneMillion:number;
+}
